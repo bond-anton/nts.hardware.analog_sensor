@@ -34,6 +34,12 @@ lint = ["pylint"]
 [tool.setuptools.dynamic]
 version = {attr = "nts.hardware.analog_sensor.version.__version__"}
 
+[tool.setuptools.package-data]
+"nts.hardware.analog_sensor" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.mypy]
 python_version = "3.9"
 
