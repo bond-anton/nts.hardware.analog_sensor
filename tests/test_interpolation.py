@@ -180,7 +180,8 @@ def test_extrapolation(sample_data, sensor_class):
     if sensor_class == AkimaInterpolatorSensor:
         if scipy_v[0] == 1 and scipy_v[1] == 13:
             assert np.isnan(result)
-    assert not np.isnan(result)
+    else:
+        assert not np.isnan(result)
 
 
 # pylint: disable=redefined-outer-name
