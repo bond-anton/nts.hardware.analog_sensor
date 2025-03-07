@@ -173,6 +173,7 @@ class AkimaInterpolatorSensor(AnalogSensorInterface):
         """
         super().__init__(model_name)
         self.data = _validate_data_array(data)
+        # pylint: disable=unexpected-keyword-arg
         self.akima = Akima1DInterpolator(
             self.data[:, 0], self.data[:, 1], extrapolate=extrapolate
         )
