@@ -2,6 +2,7 @@
 
 import pytest
 import numpy as np
+import scipy
 
 try:
     from src.nts.hardware.analog_sensor.interpolation import (
@@ -171,9 +172,14 @@ def test_extrapolation(sample_data, sensor_class):
 
     sensor = sensor_class("test_sensor", sample_data, **kwargs)
 
+    scipy_v = [int(v) for v in scipy.__version__.split(".")]
+
     # Test value beyond data range
     result = sensor.convert_voltage(4.0)
     assert isinstance(result, float)
+    if sensor_class == AkimaInterpolatorSensor:
+        if scipy_v[0] == 1 and scipy_v[1] == 13:
+            assert np.isnan(result)
     assert not np.isnan(result)
 
 

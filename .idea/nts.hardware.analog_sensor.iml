@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/htmlcov" />
+      <excludeFolder url="file://$MODULE_DIR$/src/nts.hardware.analog_sensor.egg-info" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.12 (nts.hardware.analog_sensor)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
