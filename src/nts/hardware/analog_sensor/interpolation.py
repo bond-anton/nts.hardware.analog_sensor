@@ -173,10 +173,14 @@ class AkimaInterpolatorSensor(AnalogSensorInterface):
         """
         super().__init__(model_name)
         self.data = _validate_data_array(data)
-        # pylint: disable=unexpected-keyword-arg
-        self.akima = Akima1DInterpolator(
-            self.data[:, 0], self.data[:, 1], extrapolate=extrapolate
-        )
+        try:
+            # pylint: disable=unexpected-keyword-arg
+            self.akima = Akima1DInterpolator(
+                self.data[:, 0], self.data[:, 1], extrapolate=extrapolate
+            )
+        except TypeError:
+            # extrapolate not supported before scipy v1.14
+            self.akima = Akima1DInterpolator(self.data[:, 0], self.data[:, 1])
 
     def convert_voltage(
         self, voltage: Union[float, NDArray[np.float64]]

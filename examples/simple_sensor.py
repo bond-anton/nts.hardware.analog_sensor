@@ -1,4 +1,5 @@
 """Simple Linear Sensor example."""
+
 from nts.hardware.analog_sensor import LinearSensor
 
 
