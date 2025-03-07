@@ -1,0 +1,1 @@
+Analog sensor data processing module
